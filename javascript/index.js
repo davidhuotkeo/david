@@ -1,5 +1,12 @@
 var textWrapper = document.querySelector('.ml12');
+var loader = $('#preloader');
+let delayTime = 2000;
+
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+loader.delay(delayTime).transition({
+  display: 'none'
+});
 
 anime.timeline({loop: true})
   .add({
@@ -23,17 +30,17 @@ var detailpara = $('p.detail');
 var menu = $('ul.menu > li');
 var iconContact = $('.contacts > .icons');
 
-detailpara.transition({
+detailpara.delay(delayTime).transition({
   'opacity': 1,
   'transform': 'translateX(0px)'
 }, 1500);
 
-menu.animate({
+menu.delay(delayTime).animate({
   'margin': '30px 15px',
   'opacity': 1
 }, 2000);
 
-iconContact.transition({
+iconContact.delay(delayTime).transition({
   'transform': 'translateX(0px)',
   'opacity': 1
 }, 2000);
