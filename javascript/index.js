@@ -1,6 +1,6 @@
 var textWrapper = document.querySelector('.ml12');
 var loader = $('#preloader');
-let delayTime = 2000;
+let delayTime = 3000;
 
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
