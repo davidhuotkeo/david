@@ -2,11 +2,23 @@ var textWrapper = document.querySelector('.ml12');
 var loader = $('#preloader');
 let delayTime = 3000;
 
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+var firstTime = localStorage.getItem("first_time");
+if(firstTime) {
+  delayTime = 0;
+  localStorage.setItem("first_time", false);
+} else {
+  localStorage.setItem("first_time", true);
+  loader
+  .transition({
+    display: 'block'
+  },10)
+  .delay(delayTime)
+  .transition({
+    display: 'none'
+  }, 10);
+}
 
-loader.delay(delayTime).transition({
-  display: 'none'
-});
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
   .add({
