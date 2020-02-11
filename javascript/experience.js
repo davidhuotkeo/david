@@ -53,7 +53,7 @@ for(let i=0; i<lines; i++) {
     lineNum.append(`<p class="num">${i+1}</p>`);
 }
 
-for(let i=0; i<length; i++) {
+for(let i=length-1; i>=0; i--) {
     detail.append(
         `<div class="wrap">
             <p class="year">${data.years[i]}</p>
